@@ -1,0 +1,44 @@
+<% layout("boilerplate/boilerplate") %>
+<div class="container">
+  <div
+    class="customer-body d-flex flex-column justify-content-center align-items-center"
+  >
+    <h1>All Customers!</h1>
+    <div class="customer-table mt-3">
+      <table>
+        <thead>
+          <tr>
+            <th><span class="ms-md-5"> </span></th>
+            <th><span class="ms-md-5">Name </span></th>
+            <th><span class="ms-md-5"> Email</span></th>
+            <th><span class="ms-md-5">Current Balance(in ₹)</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% customers.map((c)=>{ %>
+          <tr class="my-3">
+            <td>
+              <span class="ms-md-5"
+                ><a class="btn btn-success" href="/customers/<%= c._id %>"
+                  >View Account</a
+                ></span
+              >
+            </td>
+            <td><span class="ms-md-5"><%= c.name %> </span></td>
+            <td><span class="ms-md-5"> <%= c.email %></span></td>
+            <td><span class="ms-md-5"><%= c.currBalance %> </span></td>
+            <td>
+              <span
+                class="ms-md-5 d-flex justify-content-center align-items-center"
+                ><form action="/customers/transfer/<%= c._id %>">
+                  <button class="btn btn-danger">Transfer Money</button>
+                </form>
+              </span>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

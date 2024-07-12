@@ -1,0 +1,98 @@
+<% layout("boilerplate/boilerplate") %>
+<div class="container">
+  <h1 class="text-center">Transfer Amount</h1>
+  <form
+    action="/customers/transfer/<%= sender._id %>?_method=PUT"
+    method="POST"
+    novalidate
+    class="validated-form"
+  >
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Sender's Name:</span>
+      <input
+        type="text"
+        class="form-control"
+        name="senderName"
+        value="<%=sender.name  %>"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon2"
+        >Sender's Current Balance:</span
+      >
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Recipient's username"
+        aria-label="Recipient's username"
+        aria-describedby="basic-addon2"
+        value="<%= sender.currBalance %>"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Reciever's Name:</span>
+      <select
+        class="form-select form-select"
+        aria-label="Large select example"
+        name="recieverName"
+        required
+      >
+        <option value="">Choose Reciever:</option>
+        <%const fcus = customers.filter(c=>c.name!==sender.name) %>
+        <%fcus.filter((c)=>{ %>
+        <option value="<%=c.name %>"><%= c.name %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon2"
+        >Enter The Amount To Be Transferred:</span
+      >
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Recipient's username"
+        aria-label="Recipient's username"
+        aria-describedby="basic-addon2"
+        name="amountWithdrawl"
+        value=""
+        required
+      />
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-text">Remarks:</span>
+      <textarea
+        class="form-control"
+        aria-label="With textarea"
+        required
+      ></textarea>
+    </div>
+    <button class="btn btn-success my-4">Send</button>
+  </form>
+</div>
+<script>
+  (() => {
+    "use strict";
+
+    const forms = document.querySelectorAll(".validated-form");
+
+    Array.from(forms).forEach((form) => {
+      form.addEventListener(
+        "submit",
+        (event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add("was-validated");
+        },
+        false
+      );
+    });
+  })();
+</script>

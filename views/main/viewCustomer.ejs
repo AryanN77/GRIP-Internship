@@ -1,0 +1,42 @@
+<% layout("boilerplate/boilerplate") %>
+<div class="container">
+  <h1 class="text-center">Account Details</h1>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"
+      >Name of the Customer:
+    </span>
+    <input
+      type="text"
+      class="form-control"
+      value="<%= customer.name %>"
+      aria-describedby="basic-addon1"
+    />
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon2">E-mail:</span>
+    <input
+      type="text"
+      class="form-control"
+      aria-describedby="basic-addon2"
+      value="<%= customer.email  %>"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="basic-url" class="form-label">Current Account Balance:</label>
+    <div class="input-group">
+      <span class="input-group-text" id="basic-addon3">₹</span>
+      <input
+        type="text"
+        class="form-control"
+        id="basic-url"
+        aria-describedby="basic-addon3 basic-addon4"
+        value="<%= customer.currBalance %>"
+      />
+    </div>
+  </div>
+  <a class="btn btn-danger" href="/customers/transfer/<%= customer._id %>"
+    >Send Money</a
+  >
+</div>

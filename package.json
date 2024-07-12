@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^5.1.0",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "ejs-mate": "^4.0.0",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.5.0",
+    "node": "^22.4.0",
+    "path": "^0.12.7"
+  },
+  "name": "grip-internship",
+  "version": "1.0.0",
+  "description": "For Spark Foundation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aryan Naithani",
+  "license": "ISC"
+}

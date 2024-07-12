@@ -1,0 +1,16 @@
+<% layout("boilerplate/boilerplate") %>
+<div class="container text-center">
+  <h1 class="text-center">Transaction History</h1>
+  <div class="row fw-bold text-decoration-underline h3">
+    <div class="col">Sender</div>
+    <div class="col">Receiver</div>
+    <div class="col">Amount Transferred</div>
+  </div>
+  <% transaction.map((t)=>{%>
+  <div class="row">
+    <div class="col"><%= t.sender %></div>
+    <div class="col"><%= t.reciever %></div>
+    <div class="col">₹ <%=t.amount %></div>
+  </div>
+  <%}) %>
+</div>
