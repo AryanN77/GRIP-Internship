@@ -15,7 +15,7 @@ const dbURL = process.env.DB_URL;
 const mongoose = require("mongoose");
 const localDbUrl = "mongodb://127.0.0.1:27017/GRIP"
 const connection = mongoose.connect(
-    localDbUrl,
+    dbURL,
 );
 
 connection
@@ -32,7 +32,7 @@ const sessionOptions = {
 };
 
 const store = MongoStore.create({
-    mongoUrl: localDbUrl,
+    mongoUrl: dbURL,
     touchAfter: 24 * 60 * 60,
     crypto: {
         secret: 'thisshouldbeabettersecret!'
